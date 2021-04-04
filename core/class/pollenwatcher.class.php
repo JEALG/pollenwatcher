@@ -145,7 +145,7 @@ class pollenwatcher extends eqLogic {
 	public function updateData()
 	{		
 
-	$json = file_get_contents("https://www.pollens.fr/risks/thea/counties/" . sprintf("%02d",$this->getConfiguration("region_id")))
+	$json = file_get_contents("https://www.pollens.fr/risks/thea/counties/" . sprintf("%02d",$this->getConfiguration("region_id")));
 	$data = json_decode($json, true);
 
 	log::add('pollenwatcher', 'info', "riskLevel = " . $data['riskLevel']);
