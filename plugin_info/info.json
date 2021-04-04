@@ -1,11 +1,22 @@
 {
-	"id" : "pollenwatcher",
-	"name" : "Surveillance Allergo Pollinique",
-	"licence" : "AGPL",
-	"author" : "Gr3g0rY",
-	"require" : "3.0",
-	"category" : "weather",
-	"hasDependency" : 0,
-	"hasOwnDeamon" : 0
+	"id": "pollenwatcher",
+	"name": "Surveillance Allergo Pollinique",
+	"description": "Plugin en developement",
+	"licence": "AGPL",
+	"author": "titof2375",
+	"require": "3.0",
+	"category": "weather",
+	"hasDependency": true,
+	"hasOwnDeamon": true,
+	"maxDependancyInstallTime": 45,
+	"changelog": "https://jeedom.domometz.com/changelog-pollewatcher",
+	"documentation": "https://jeedom.domometz.com/documentation-plugin-pollewatcher",
+	"link": {
+		"forum": "https://community.jeedom.com/tags/plugin-ewejeepollewatcher",
+		"video": "https://www.youtube.com/watch?v=*******"
+	},
+	"language": [ "fr_FR", "en_US", "de_DE", "sp_SP", "ru_RU", "id_ID", "it_IT" ],
+	"compatibility": [ "miniplus", "smart", "rpi", "docker", "diy", "mobile", "v4" ]
+}
 }
 
