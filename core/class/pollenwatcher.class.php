@@ -248,7 +248,7 @@ class pollenwatcher extends eqLogic {
 		// *********************************
 		//  Prepare allergy list
 	
-		$ordererArray;
+		$ordererArray=null;
 		$maxLevel = 0;
 		foreach ($this->getPollens() as $key){
 			$allergyCmd = $this->getCmd(null,  $key);
@@ -279,7 +279,7 @@ class pollenwatcher extends eqLogic {
 		if (  is_object($status ) && ($status->getIsVisible() == 1))
 		{
 			if( $maxLevel != $status->execCmd()  ) {
-				$status->setValue(maxLevel);
+				$status->setValue($maxLevel);
 				$status->save();
 			}
 			$replace["#global_color#"]	= $this->getAllergyColor($maxLevel);
