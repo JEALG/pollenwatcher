@@ -5,7 +5,7 @@
 
 # Jeedom - Plugin pollenwatcher
 
-Plugin d'avoir les alestes sur les Pollens
+Parfait pour les allergiques! Permet de surveiller le pollen région par région. Les informations proviennent du site NRSA (Réseau National de Surveillance Aérobiologique)
 
 _[Documentation](https://github.com/titof2375/pollenwatcher/blob/master/docs/fr_FR/index.md)_
 

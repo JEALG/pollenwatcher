@@ -1,7 +1,7 @@
 {
 	"id": "pollenwatcher",
 	"name": "Surveillance Allergo Pollinique",
-	"description": "Plugin en developement",
+	"description": "Parfait pour les allergiques! Permet de surveiller le pollen région par région. Les informations proviennent du site NRSA (Réseau National de Surveillance Aérobiologique)",
 	"usage":"",
 	"licence": "AGPL",
 	"author": "titof2375",
