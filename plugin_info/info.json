@@ -10,10 +10,10 @@
 	"hasDependency": false,
 	"hasOwnDeamon": false,
 	"maxDependancyInstallTime": 0,
-	"changelog": "https://jeedom.domometz.com/changelog-pollewatcher",
+	"changelog": "https://github.com/titof2375/pollenwatcher/blob/master/docs/fr_FR/changelog.md",
 	"documentation": "https://github.com/titof2375/pollenwatcher/blob/master/docs/fr_FR/index.md",
 	"changelog_beta": "https://jeedom.domometz.com/changelog-pollewatcher",
-	"documentation_beta": "https://github.com/titof2375/pollenwatcher/blob/master/docs/fr_FR/index.md",
+	"documentation_beta": "https://github.com/titof2375/pollenwatcher/blob/master/docs/fr_FR/changelog.md",
 	"link": {
 		"forum": "https://community.jeedom.com/tags/plugin-pollewatcher",
 		"video": "https://www.youtube.com/watch?v=*******"
