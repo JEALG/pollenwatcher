@@ -345,10 +345,10 @@ class pollenwatcher extends eqLogic
 			// Probleme sur cette fonction en attente
 			//$allergyCmd = $allergyCmd->getIsVisible();
 			$allergyCmd = true;
-			if ($allergyCmd == 1 && ($result_risks['level'] > $riskLevel_max_Value)) {
-				log::add(__CLASS__, 'debug', '│ Commande Visible pour : ' . $result_risks['pollenName']);
-				$riskLevel_max_Value = $result_risks['level'];
-			}
+			//if ($allergyCmd == 1 && ($result_risks['level'] > $riskLevel_max_Value)) {
+			//log::add(__CLASS__, 'debug', '│ Commande Visible pour : ' . $result_risks['pollenName']);
+			$riskLevel_max_Value = $result_risks['level'];
+			//}
 			// Prépration Log
 			if ($risk_list == null) {
 				$risk_list = 'pollenName ' . $result_risks['pollenName'] . ' Level ' . $result_risks['level'];
