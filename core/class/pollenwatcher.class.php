@@ -75,7 +75,7 @@ class pollenwatcher extends eqLogic
 	/*
   * Fonction exécutée automatiquement toutes les 15 minutes par Jeedom
   */
-  public static function cron15()
+	public static function cron15()
 	{
 
 		foreach (eqLogic::byType('pollenwatcher') as $pollenwatcher) {
@@ -341,8 +341,10 @@ class pollenwatcher extends eqLogic
 		$riskLevel_max_Value = 0;
 		foreach ($result['risks'] as $result_risks) {
 			$this->checkAndUpdateCmd($result_risks['pollenName'], $result_risks['level']);
-			$allergyCmd = $this->getCmd(null,  $result_risks['pollenName']);
-			$allergyCmd = $allergyCmd->getIsVisible();
+			$allergyCmd = $this->getCmd('info',  $result_risks['pollenName']);
+			// Probleme sur cette fonction en attente
+			//$allergyCmd = $allergyCmd->getIsVisible();
+			$allergyCmd = true;
 			if ($allergyCmd == 1 && ($result_risks['level'] > $riskLevel_max_Value)) {
 				log::add(__CLASS__, 'debug', '│ Commande Visible pour : ' . $result_risks['pollenName']);
 				$riskLevel_max_Value = $result_risks['level'];
@@ -355,7 +357,7 @@ class pollenwatcher extends eqLogic
 			}
 		}
 		log::add('pollenwatcher', 'debug', '│ ' . $risk_list);
-		log::add('pollenwatcher', 'debug', "│ Valeur Maxi surveillée ('prend en compte la visibilité de la commande : " . $riskLevel_max_Value);
+		log::add('pollenwatcher', 'debug', "│ Valeur Maxi surveillée : " . $riskLevel_max_Value);
 
 
 
