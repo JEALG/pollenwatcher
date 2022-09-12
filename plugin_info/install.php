@@ -21,13 +21,10 @@ require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 function pollenwatcher_install()
 {
     jeedom::getApiKey('pollenwatcher');
-    config::save('functionality::cronDaily::enable', 1, 'pollenwatcher');
-    /* Préparation Cron a voir si besoin
-    config::save('functionality::cron5::enable', 0, 'pollenwatcher');
-    config::save('functionality::cron10::enable', 0, 'pollenwatcher');
     config::save('functionality::cron15::enable', 0, 'pollenwatcher');
-    config::save('functionality::cron30::enable', 1, 'pollenwatcher');
+    config::save('functionality::cron30::enable', 0, 'pollenwatcher');
     config::save('functionality::cronHourly::enable', 0, 'pollenwatcher');
+    config::save('functionality::cronDaily::enable', 1, 'pollenwatcher');
 */
     $cron = cron::byClassAndFunction('pollenwatcher', 'pull');
     if (is_object($cron)) {
@@ -45,30 +42,18 @@ function pollenwatcher_update()
         $cron->remove();
     }
 
-    config::save('functionality::cronDaily::enable', 1, 'pollenwatcher');
-
-
-    /* Préparation Cron a voir si besoin
-    if (config::byKey('functionality::cron5::enable', 'pollenwatcher', -1) == -1) {
-        config::save('functionality::cron5::enable', 0, 'pollenwatcher');
-    }
-
-    if (config::byKey('functionality::cron10::enable', 'pollenwatcher', -1) == -1) {
-        config::save('functionality::cron10::enable', 0, 'pollenwatcher');
-    }
-
     if (config::byKey('functionality::cron15::enable', 'pollenwatcher', -1) == -1) {
         config::save('functionality::cron15::enable', 0, 'pollenwatcher');
     }
-
     if (config::byKey('functionality::cron30::enable', 'pollenwatcher', -1) == -1) {
-        config::save('functionality::cron30::enable', 1, 'pollenwatcher');
+        config::save('functionality::cron30::enable', 0, 'pollenwatcher');
     }
-
     if (config::byKey('functionality::cronHourly::enable', 'pollenwatcher', -1) == -1) {
         config::save('functionality::cronHourly::enable', 0, 'pollenwatcher');
     }
-    */
+    if (config::byKey('functionality::cronDaily::enable', 'pollenwatcher', -1) == -1) {
+        config::save('functionality::cronDaily::enable', 1, 'pollenwatcher');
+    }
 
     $plugin = plugin::byId('pollenwatcher');
     $eqLogics = eqLogic::byType($plugin->getId());

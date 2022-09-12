@@ -40,15 +40,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				$status_r = 1;
 				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '" >';
-				if ($eqLogic->getConfiguration('type_calcul') == 'tendance' or $eqLogic->getConfiguration('type_calcul') == 'temperature') {
-					echo '<img src="' . $eqLogic->getImage() . '"/>';
-				} else {
-					echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
-				}
+				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
 				echo '<br>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '<span class="hiddenAsCard displayTableRight hidden">';
-				echo '<span class="label">' . $eqLogic->getConfiguration('type_calcul')  .  '</span>';
+				echo '<span class="label">' . $eqLogic->getConfiguration('region_id')  .  '</span>';
 				echo ($eqLogic->getIsVisible() == 1) ? '<i class="fas fa-eye" title="{{Equipement visible}}"></i>' : '<i class="fas fa-eye-slash" title="{{Equipement non visible}}"></i>';
 				echo '</span>';
 				echo '</div>';
@@ -240,6 +236,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									</select>
 								</div>
 							</div>
+							<!-- PLUS DE WIDGET Donc ligne désactivée
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{Style affichage valeur globale}}
 								</label>
@@ -257,6 +254,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									</select>
 								</div>
 							</div>
+								-->
 						</div>
 
 						<!-- Partie droite de l'onglet "Equipement" -->
