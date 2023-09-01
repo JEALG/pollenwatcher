@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -18,23 +17,23 @@
 
 try {
     require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+    require_once dirname(__FILE__) . '/../../core/php/pollenwatcher.inc.php';
     include_file('core', 'authentification', 'php');
-
     if (!isConnect('admin')) {
-        throw new Exception(__('401 - Accès non autorisé', __FILE__));
+        throw new Exception(__('401 - {{Accès non autorisé}}', __FILE__));
     }
-    
+    /* Fonction permettant l'envoi de l'entête 'Content-Type: application/json'
+    En V3 : indiquer l'argument 'true' pour contrôler le token d'accès Jeedom
+    En V4 : autoriser l'exécution d'une méthode 'action' en GET en indiquant le(s) nom(s) de(s) action(s) dans un tableau en argument
+  */
     ajax::init();
-	
-	
-	
-	
 
-
-
-    throw new Exception(__('Aucune méthode correspondante à : ', __FILE__) . init('action'));
+    throw new Exception(__('Aucune méthode correspondante à ', __FILE__) . ' : ' . init('action'));
     /*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-    ajax::error(displayExeption($e), $e->getCode());
+    if (version_compare(jeedom::version(), '4.4', '>=')) {
+        ajax::error(displayException($e), $e->getCode());
+    } else {
+        ajax::error(displayExeption($e), $e->getCode());
+    }
 }
-

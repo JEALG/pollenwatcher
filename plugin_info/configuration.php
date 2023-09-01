@@ -24,5 +24,33 @@ if (!isConnect()) {
 }
 ?>
 
+<script>
+  $(function() {
+    $('#div_confPlugin > .panel.panel-primary').hide()
+  })
 
+  $("input[data-l1key='functionality::cron15::enable']").on('change', function() {
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron30::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronHourly::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronDaily::enable']").prop("checked", false)
 
+  });
+
+  $("input[data-l1key='functionality::cron30::enable']").on('change', function() {
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron15::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronHourly::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronDaily::enable']").prop("checked", false)
+  });
+
+  $("input[data-l1key='functionality::cronHourly::enable']").on('change', function() {
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron15::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron30::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronDaily::enable']").prop("checked", false)
+  });
+
+  $("input[data-l1key='functionality::cronDaily::enable']").on('change', function() {
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron15::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cron30::enable']").prop("checked", false)
+    if ($(this).is(':checked')) $("input[data-l1key='functionality::cronHourly::enable']").prop("checked", false)
+  });
+</script>
